@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /*⭐헤더*/
+      h2 {
+        margin-top: 70px;
+        margin-left: 200px;
+        font-size: 40px;
+        display: inline;
+        line-height: 80px;
+      }
+      #search {
+        width: 400px;
+        height: 40px;
+        margin: 0px 0px 10px 10px;
+      }
+      #searchBtn {
+        width: 40px;
+        height: 40px;
+        margin: 0px 10px 0 0;
+      }
+      p {
+        display: inline;
+      }
+      #calendar {
+        width: 40px;
+        height: 40px;
+      }
+
+      /*⭐카테고리*/
+      #category {
+        color: #fff;
+        background-color: #a5d7ff;
+        padding: 10px;
+        padding-left: 150px;
+      }
+
+      .menu {
+        position: relative;
+        display: inline-block;
+        margin: 0 10px 0 50px;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .submenu {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        opacity: 80%;
+        min-width: 150px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+
+      .submenu a {
+        display: block;
+        color: #333;
+        padding: 6px 0;
+        text-decoration: none;
+      }
+
+      .menu:hover .submenu {
+        display: block;
+      }
+
+      /*⭐바디*/
+      #body {
+        margin: 20px 0 10px 200px;
+      }
+
+      #ad {
+        width: 600px;
+        height: 250px;
+        float: left; /* 왼쪽으로 부유(floating) */
+        margin-right: 20px; /* 오른쪽 여백 추가 */
+      }
+
+      #login {
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
+        float: left; /* 왼쪽으로 부유(floating) */
+        margin-left: 50px;
+        line-height: 60px;
+        text-align: center;
+      }
+      #psnLogin {
+        width: 200px;
+        height: 40px;
+        margin: 20px 0 10px 0;
+        background-color: rgb(255, 142, 142);
+        border: 0px;
+      }
+      #cpnLogin {
+        width: 200px;
+        height: 40px;
+        margin: 10px 0 10px 0;
+        background-color: #a5d7ff;
+        border: 0px;
+      }
+      #mngLogin {
+        width: 200px;
+        height: 40px;
+        margin: 10px 0 10px 0;
+        color: white;
+        background-color: #0168bd;
+        border: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ⭐헤더 -->
+    <div id="header">
+      <h2>일자리 구하슈</h2>
+      <input type="text" id="search" />
+      <button id="searchBtn">🔍</button>
+      <p>회원가입</p>
+      <p>마이페이지</p>
+      <button id="calendar">📅</button>
+      <br />
+    </div>
+    <hr />
+
+    <!-- ⭐카테고리 -->
+    <div id="category">
+      <div class="menu">
+        <a href="#">일자리이음</a>
+        <div class="submenu">
+          <a href="#">일자리 신청하기</a>
+          <a href="#">리뷰 작성하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">지식이음</a>
+        <div class="submenu">
+          <a href="#">센터찾기</a>
+          <a href="#">프로그램 신청하기</a>
+          <a href="#">리뷰 작성하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">마음이음</a>
+        <div class="submenu">
+          <a href="#">상담 신청하기</a>
+          <a href="#">말동무 신청하기</a>
+          <a href="#">리뷰 작성하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">고객센터</a>
+        <div class="submenu">
+          <a href="#">공지사항</a>
+          <a href="#">FAQ</a>
+          <a href="#">문의/제안/신고</a>
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">위치기반서비스이용약관</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⭐바디 -->
+    <div id="body">
+      <div id="ad">
+        <img src="./img/angrycat.jpg" width="600px" height="250px" />
+      </div>
+      <div id="login">
+        <button id="psnLogin">개인로그인</button><br />
+        <button id="cpnLogin">기업로그인</button><br />
+        <button id="mngLogin">관리인로그인</button><br />
+        <p id="findIdPw">아이디 비밀번호 찾기 |</p>
+        <p id="logout">로그아웃</p>
+      </div>
+      <div style="clear: both"></div>
+      <!-- clear:both;를 통해 float 속성이 적용된 요소의 영향을 받지 않도록 함 -->
+    </div>
+  </body>
+  <script></script>
+</html>
