@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
   }
+  body{
+    margin: auto;
+  }
   /*⭐헤더*/
   h2 {
     margin-top: 70px;
@@ -80,7 +83,7 @@
     margin-right: 20px; /* 오른쪽 여백 추가 */
   }
 
-  #login {
+  #loginDiv {
     width: 250px;
     height: 250px;
     border: 1px solid black;
@@ -110,4 +113,18 @@
     color: white;
     background-color: #0168bd;
     border: 0px;
+  }
+
+  /* ⭐바디2 */
+  #body2{
+    width: 600px; height: 200px;
+    border: 1px solid black;
+    margin: 20px 0 10px 200px;
+  }
+
+  /* 푸터 */
+  #footer{
+    background-color: #fff6a8;
+    height: 80px;
+    margin-top: 60px;
   }
