@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 회원정보</title>
+    <link rel="stylesheet" href="./일자리이음.css">
+</head>
+
+<body>
+
+<div class="TopBar">
+    <img id="menu" src="./img/menu.png" alt="메뉴 아이콘">
+    <img id="logo" src="./img/logo_rmv.png" alt="내일 로고">
+    <h1>일자리이음</h1>
+    <div id="LoginInfo"><span id="UserName"></span>@@님</div>
+</div>
+
+<div class="category">
+    <p>일자리 신청하기</p>
+</div>
+
+<!-- <div class="main"> -->
+    <div class="container">
+        <div id="mapDiv">
+            <input id="searchRegion" type="text" placeholder="찾을 지역을 입력해주세요.">
+            <button>검색</button>
+            <div id="map" style="width:400px;height:350px;"></div>
+        </div>
+        <div id="workPlaceList">
+            <div id="workPlaceListFilter">
+                <p>현재 지도 중심</p>
+                <select id="howToShowFilter">
+                    <option value="closeFilter">가까운 순</option>
+                    <option value="recentFilter">최신순</option>
+                </select>
+
+            </div>
+            <!-- class..이름 수정이 시급해보임. 그러나 머리아픔 -->
+            <div class="workPlaceItem">
+                <p class="workPlaceName">할머니 냉면</p>
+                <p class="workPlaceDistance">556m</p>
+                <p class="workPlaceAddress">서울 동대문구 회기동</p>
+                <br>
+                <button class="workPlaceCall">전화</button>
+                <button class="workPlaceFindRoad">길찾기</button>
+            </div>
+            <div class="workPlaceItem">
+                <p class="workPlaceName">세븐일레븐</p>
+                <p class="workPlaceDistance">680m</p>
+                <p class="workPlaceAddress">서울 동대문구 회기동 뫄뫄마</p>
+                <br>
+                <button class="workPlaceCall">전화</button>
+                <button class="workPlaceFindRoad">길찾기</button>
+            </div>
+            
+        </div>
+
+    </div>
+<!-- </div> -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=896bcba1c0b0dbe395b398da0dead7a6"></script>
+<script src="./일자리이음.js"></script>
+</body>
+</html>
