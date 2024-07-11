@@ -1,0 +1,132 @@
+body {
+	background-color: whitesmoke;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.TopBar {
+	height: 100px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	padding-left: 2%;
+}
+
+#menu {
+	width: 50px;
+	height: 50%;
+	border: 1px solid grey;
+	border-radius: 10%;
+	padding: 10px;
+}
+
+#logo {
+	height: 90%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.category p {
+	padding: 10px 0 10px 9rem;
+	background-color: white;
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+/* .main {
+	flex: 1;
+	margin-top: 5%;
+	margin: 0 10%;
+	background-color: white;
+	
+} */
+
+#LoginInfo {
+	font-size: x-large;
+	font-weight: bold;
+	color: gray;
+	margin-left: auto;
+	margin-right: 10%;
+}
+
+.container {
+	/* width: 90%; */
+	border: 2.5px solid black;
+	box-sizing: border-box;
+	background-color: white;
+	padding: 3%;
+	margin-bottom: 100px;
+	margin: 0 10%;
+	display: flex;
+	flex-direction: row;
+}
+#mapDiv{
+	border: 2px solid black;
+	flex: 1;
+	padding: 5px 10px;
+}
+
+#map{
+	margin-top:10px ;
+}
+#searchRegion{
+	width: 70%;
+	font-size: 17px;
+	font-weight: bold;
+}
+#mapDiv button{
+	width: 15%;
+	height: 7%;
+}
+
+
+#workPlaceList{
+	border: 2px solid black;
+	flex: 1.5;
+	background-color: whitesmoke;
+	margin-left: 1%;
+}
+
+#workPlaceListFilter{
+	border: 1px solid black;
+	background-color: white;
+	padding: 10px 20px;
+	margin: 5px;
+}
+#workPlaceListFilter p{
+	display: inline;
+	margin-right: 20px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#howToShowFilter{
+	border: none;
+	font-size: 17px;
+	font-weight: bold;
+}
+#howToShowFilter:hover{
+	border: 1px solid black;
+}
+
+.workPlaceItem{
+	border: 1px solid black;
+	background-color: white;
+	margin: 5px;
+	padding: 10px 20px;
+}
+.workPlaceName{
+	color: rgb(63, 129, 242);
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px;
+}
+.workPlaceDistance,.workPlaceAddress {
+	display: inline;
+}
+.workPlaceCall, .workPlaceFindRoad{
+	display: inline;
+}
