@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,56 +10,65 @@
 
 <body>
 
-<div class="TopBar">
-    <img id="menu" src="./img/menu.png" alt="메뉴 아이콘">
-    <img id="logo" src="./img/logo_rmv.png" alt="내일 로고">
-    <h1>일자리이음</h1>
-    <div id="LoginInfo"><span id="UserName"></span>@@님</div>
-</div>
+    <div class="TopBar">
+        <img id="menu" src="./img/menu.png" alt="메뉴 아이콘">
+        <img id="logo" src="./img/logo_rmv.png" alt="내일 로고">
+        <h1>일자리이음</h1>
+        <div id="LoginInfo"><span id="UserName"></span>@@님V</div>
+    </div>
 
-<div class="category">
-    <p>일자리 신청하기</p>
-</div>
+    <div class="category">
+        <p>일자리 신청하기</p>
+    </div>
 
-<!-- <div class="main"> -->
+    <!-- <div class="main"> -->
     <div class="container">
         <div id="mapDiv">
-            <input id="searchRegion" type="text" placeholder="찾을 지역을 입력해주세요.">
-            <button>검색</button>
+            <input id="keyword" type="text" placeholder="찾을 지역을 입력해주세요.">
+            <button onclick="searchPlaces()">검색</button>
             <div id="map" style="width:400px;height:350px;"></div>
         </div>
-        <div id="workPlaceList">
-            <div id="workPlaceListFilter">
-                <p>현재 지도 중심</p>
+        <div id="wpListContainer">
+            <div id="wpListFilter">
+                <p id="sorting">정렬</p>
                 <select id="howToShowFilter">
                     <option value="closeFilter">가까운 순</option>
                     <option value="recentFilter">최신순</option>
                 </select>
+                <br>
+                <p id="wpListFilterDescription">아래 리스트에서 파란 상호명을 누르면 상세설명이 나옵니다!</p>
 
             </div>
-            <!-- class..이름 수정이 시급해보임. 그러나 머리아픔 -->
-            <div class="workPlaceItem">
-                <p class="workPlaceName">할머니 냉면</p>
-                <p class="workPlaceDistance">556m</p>
-                <p class="workPlaceAddress">서울 동대문구 회기동</p>
-                <br>
-                <button class="workPlaceCall">전화</button>
-                <button class="workPlaceFindRoad">길찾기</button>
+            <!-- workplace 일자리리스트-->
+            <div class="wpItemContainer">
+                <div class="wpList">
+                    <p class="wpName"></p>
+                    <p class="wpDistance"></p>
+                    <p class="wpAddress"></p>
+                    <br>
+                </div>
+
+                <!-- <button class="wpCall"></button>
+                <button class="wpFindRoad"></button> -->
             </div>
-            <div class="workPlaceItem">
-                <p class="workPlaceName">세븐일레븐</p>
-                <p class="workPlaceDistance">680m</p>
-                <p class="workPlaceAddress">서울 동대문구 회기동 뫄뫄마</p>
-                <br>
-                <button class="workPlaceCall">전화</button>
-                <button class="workPlaceFindRoad">길찾기</button>
-            </div>
-            
+
+
         </div>
 
     </div>
-<!-- </div> -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=896bcba1c0b0dbe395b398da0dead7a6"></script>
-<script src="./일자리이음.js"></script>
+    <div id="footer">
+        <p>회사소개 |</p>
+        <p>이용약관 |</p>
+        <p>개인정보처리방침 |</p>
+        <p>제휴 및 광고문의 |</p>
+        <p>1:1 문의 |</p>
+        <br>
+        <p>©2024. 내일 all rights reserved</p>
+    </div>
+    <!-- </div> -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=896bcba1c0b0dbe395b398da0dead7a6&libraries=services"></script>
+    <script src="./tastymapcopy.js"></script>
 </body>
+
 </html>
