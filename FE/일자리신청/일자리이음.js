@@ -1,177 +1,202 @@
-var container = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
-var options = { // 지도를 생성할 때 필요한 기본 옵션
-  center: new kakao.maps.LatLng(37.62410009545093, 127.06064303127741), // 지도의 중심좌표.
-  level: 8 // 지도의 레벨(확대, 축소 정도)
-};
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(37.62410009545093, 127.06064303127741),
+        level: 8
+    };
 
-var map = new kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
-
-// 지도 확대 축소를 제어할 수 있는 줌 컨트롤을 생성합니다
-var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-// 주소-좌표 변환 객체를 생성합니다
-var geocoder = new kakao.maps.services.Geocoder();
-
-// 인포윈도우와 마커를 관리할 배열
-let infowindowArray = [];
-let markerArray = [];
-
-// 더미데이터 준비하기 (제목, 주소, 거리)
-const dataSet = [
-  { name: "할머니냉면", address: "서울 동대문구 왕산로37길 53", distance: "556m" },
-  { name: "세븐일레븐", address: "서울 동대문구 망우로 77", distance: "654m" },
-  { name: "피자파스토", address: "서울 동대문구 망우로12가길 33 1층", distance: "588m" },
-	{ name: "미스터피자", address: "서울 노원구 석계로1길 22", distance: "700m" },
-  { name: "스타벅스", address: "서울 노원구 석계로 104", distance: "300m" },
-];
-
-function getCoordsByAddress(address) {
-  return new Promise((resolve, reject) => {
-    geocoder.addressSearch(address, function (result, status) {
-      if (status === kakao.maps.services.Status.OK) {
-        resolve(new kakao.maps.LatLng(result[0].y, result[0].x));
-      } else {
-        reject(new Error("getCoordsByAddress Error: not Valid Address"));
-      }
+    var map = new kakao.maps.Map(container, options);
+    var marker = new kakao.maps.Marker({ 
+        position: map.getCenter() 
     });
-  });
-}
+    marker.setMap(map);
+    var zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
-function createMarker(coords, data) {
-  var marker = new kakao.maps.Marker({
-    map: map,
-    position: coords,
-  });
+    var geocoder = new kakao.maps.services.Geocoder();
 
-  var infowindow = new kakao.maps.InfoWindow({
-    content: getContent(data),
-  });
+    let infowindowArray = [];
+    let markerArray = [];
 
-  markerArray.push(marker);
-  infowindowArray.push(infowindow);
+    const dataSet = [
+        { name: "할머니냉면", address: "서울 동대문구 왕산로37길 53", distance: "" },
+        { name: "세븐일레븐", address: "서울 동대문구 망우로 77", distance: "" },
+        { name: "피자파스토", address: "서울 동대문구 망우로12가길 33 1층", distance: "" },
+        { name: "미스터피자", address: "서울 노원구 석계로1길 22", distance: "" },
+        { name: "스타벅스", address: "서울 노원구 석계로 104", distance: "" },
+    ];
 
-  // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-  kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow, coords));
-  return marker;
-}
+    let userCoords;
 
-function getContent(data) {
-  return `
-  <div class="infowindow">
-    <p class="infowindow-name">${data.name}</p>
-    <p class="infowindow-address">${data.address}</p>
-  </div>`;
-}
-
-async function setMap(dataSet) {
-  for (let data of dataSet) {
-    try {
-      let coords = await getCoordsByAddress(data.address);
-      createMarker(coords, data);
-    } catch (error) {
-      console.error(error);
+    function getCoordsByAddress(address) {
+        return new Promise((resolve, reject) => {
+            geocoder.addressSearch(address, function (result, status) {
+                if (status === kakao.maps.services.Status.OK) {
+                    resolve(new kakao.maps.LatLng(result[0].y, result[0].x));
+                } else {
+                    reject(new Error("getCoordsByAddress Error: not Valid Address"));
+                }
+            });
+        });
     }
-  }
-}
 
-// 클릭했을때 실행할 이벤트
-function makeOverListener(map, marker, infowindow, coords) {
-  return function () {
-    closeInfoWindow();
-    infowindow.open(map, marker);
-    // 클릭한 곳으로 마커이동
-    map.panTo(coords);
-  };
-}
+    function createMarker(coords, data, index) {
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords,
+        });
 
-function closeInfoWindow() {
-  infowindowArray.forEach(infowindow => infowindow.close());
-}
+        var infowindow = new kakao.maps.InfoWindow({
+            content: getContent(data),
+        });
 
-// 지도 클릭 이벤트를 추가합니다
-kakao.maps.event.addListener(map, 'click', function() {
-  closeInfoWindow();
-});
+        markerArray.push(marker);
+        infowindowArray.push(infowindow);
 
-// 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places();
+        kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow, coords, index));
+        return marker;
+    }
 
-function searchPlaces() {
-  var keyword = document.querySelector('#keyword').value.trim();
+    function getContent(data) {
+        return `
+        <div class="infowindow">
+            <p class="infowindow-name">${data.name}</p>
+            <p class="infowindow-address">${data.address}</p>
+            <p class="infowindow-distance">${data.distance}</p>
+        </div>`;
+    }
 
-  if (!keyword) {
-    alert('장소를 입력해주세요!');
-    return false;
-  }
+    async function setMap(dataSet) {
+        for (let i = 0; i < dataSet.length; i++) {
+            try {
+                let coords = await getCoordsByAddress(dataSet[i].address);
+                createMarker(coords, dataSet[i], i);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
 
-  ps.keywordSearch(keyword, placesSearchCB);
-}
+    function makeOverListener(map, marker, infowindow, coords, index) {
+        return function () {
+            closeInfoWindow();
+            infowindow.open(map, marker);
+            map.panTo(coords);
+        };
+    }
 
-function placesSearchCB(data, status) {
-  if (status === kakao.maps.services.Status.OK) {
-    var bounds = new kakao.maps.LatLngBounds();
+    function closeInfoWindow() {
+        infowindowArray.forEach(infowindow => infowindow.close());
+    }
 
-    data.forEach(place => {
-      //검색 시 카카오맵에서 다른 장소들 불러오기
-      //displayMarker(place);
-      bounds.extend(new kakao.maps.LatLng(place.y, place.x));
+    kakao.maps.event.addListener(map, 'click', function() {
+        closeInfoWindow();
     });
 
-    map.setBounds(bounds);
-  }
-}
+    var ps = new kakao.maps.services.Places();
 
-setMap(dataSet);
+    function searchPlaces() {
+        var keyword = document.querySelector('#keyword').value.trim();
 
+        if (!keyword) {
+            alert('장소를 입력해주세요!');
+            return false;
+        }
 
-//⭐데이터를 받아와서 html 에 넣어주기
-// 컨테이너 요소를 선택합니다.
-var wpList = document.querySelector('.wpList');
+        ps.keywordSearch(keyword, placesSearchCB);
+    }
 
-// dataSet을 사용하여 wpList 요소를 생성합니다.
-for (let i = 0; i < dataSet.length; i++) {
-  var wpListDiv = document.createElement('div');
-  wpListDiv.className = 'wpList';
+    function placesSearchCB(data, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            var bounds = new kakao.maps.LatLngBounds();
 
-  var wpName = document.createElement('p');
-  wpName.className = 'wpName';
-  wpName.innerHTML = dataSet[i].name;
-  wpName.addEventListener('click', function() {
-    var d_wpListFilter = document.querySelector('#wpListFilter');
-    var d_wpList = document.querySelector('#wpList');
-        //d_wpListFilter.style.display = 'none';
-        var dataSet_name = JSON.stringify(dataSet.name);
-        d_wpListFilter.innerHTML = `${dataSet_name} 직원 구합니다` ;
-        d_wpListFilter.createElement = `<button>신청하기</button>`;
-    });
+            data.forEach(place => {
+                bounds.extend(new kakao.maps.LatLng(place.y, place.x));
+            });
 
-  var wpDistance = document.createElement('p');
-  wpDistance.className = 'wpDistance';
-  wpDistance.innerHTML = dataSet[i].distance;
+            map.setBounds(bounds);
+            map.panTo(bounds.getCenter()); // 지도 중심을 검색 결과의 중심으로 이동
+        }
+    }
 
-  var wpAddress = document.createElement('p');
-  wpAddress.className = 'wpAddress';
-  wpAddress.innerHTML = dataSet[i].address;
+    async function savePresentAddress() {
+        const address = document.getElementById('presentAddress').value;
+        if (!address) {
+            alert('주소를 입력해주세요!');
+            return;
+        }
 
-  var br = document.createElement('br');
+        try {
+            userCoords = await getCoordsByAddress(address);
+            alert('현위치가 저장되었습니다.');
 
-  var wpCall = document.createElement('button');
-  wpCall.className = 'wpCall';
-  wpCall.innerHTML = '전화';
+            // 현위치 저장 후 모든 거리 계산 및 리스트 업데이트
+            for (let i = 0; i < dataSet.length; i++) {
+                let coords = await getCoordsByAddress(dataSet[i].address);
+                const distance = calculateDistance(userCoords, coords);
+                dataSet[i].distance = `${distance.toFixed(2)}m`;
+            }
 
-  var wpFindRoad = document.createElement('button');
-  wpFindRoad.className = 'wpFindRoad';
-  wpFindRoad.innerHTML = '길찾기';
+            updateWpList();
+        } catch (error) {
+            console.error(error);
+            alert('유효한 주소를 입력해주세요.');
+        }
+    }
 
-  // wpList에 요소들을 추가합니다.
-  wpListDiv.appendChild(wpName);
-  wpListDiv.appendChild(wpDistance);
-  wpListDiv.appendChild(wpAddress);
-  wpListDiv.appendChild(br);
-  wpListDiv.appendChild(wpCall);
-  wpListDiv.appendChild(wpFindRoad);
+    function calculateDistance(coords1, coords2) {
+        const R = 6371; // 지구의 반지름 (km)
+        const dLat = (coords2.getLat() - coords1.getLat()) * Math.PI / 180;
+        const dLng = (coords2.getLng() - coords1.getLng()) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                  Math.cos(coords1.getLat() * Math.PI / 180) * Math.cos(coords2.getLat() * Math.PI / 180) *
+                  Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distance = R * c * 1000; // km를 미터로 변환
+        return distance;
+    }
 
-  // 컨테이너에 wpList를 추가합니다.
-  wpList.appendChild(wpListDiv);
-}
+    setMap(dataSet);
+
+    function updateWpList() {
+        var wpList = document.querySelector('.wpList');
+        wpList.innerHTML = '';
+
+        for (let i = 0; i < dataSet.length; i++) {
+            var wpListDiv = document.createElement('div');
+            wpListDiv.className = 'wpList';
+
+            var wpName = document.createElement('p');
+            wpName.className = 'wpName';
+            wpName.innerHTML = dataSet[i].name;
+
+            var wpDistance = document.createElement('p');
+            wpDistance.className = 'wpDistance';
+            wpDistance.innerHTML = dataSet[i].distance;
+
+            var wpAddress = document.createElement('p');
+            wpAddress.className = 'wpAddress';
+            wpAddress.innerHTML = dataSet[i].address;
+
+            var br = document.createElement('br');
+
+            var wpCall = document.createElement('button');
+            wpCall.className = 'wpCall';
+            wpCall.innerHTML = '전화';
+
+            var wpFindRoad = document.createElement('button');
+            wpFindRoad.className = 'wpFindRoad';
+            wpFindRoad.innerHTML = '길찾기';
+
+            wpListDiv.appendChild(wpName);
+            wpListDiv.appendChild(wpDistance);
+            wpListDiv.appendChild(wpAddress);
+            wpListDiv.appendChild(br);
+            wpListDiv.appendChild(wpCall);
+            wpListDiv.appendChild(wpFindRoad);
+
+            wpList.appendChild(wpListDiv);
+        }
+    }
+
+    // 초기화 시 wpList 업데이트
+    updateWpList();
