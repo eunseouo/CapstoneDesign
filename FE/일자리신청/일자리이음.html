@@ -21,11 +21,13 @@
         <p>일자리 신청하기</p>
     </div>
 
-    <!-- <div class="main"> -->
     <div class="container">
         <div id="mapDiv">
+            <input id="presentAddress" type="text" placeholder="현위치를 작성하여주세요.">
+            <button onclick="savePresentAddress()">완료</button>
             <input id="keyword" type="text" placeholder="찾을 지역을 입력해주세요.">
             <button onclick="searchPlaces()">검색</button>
+
             <div id="map" style="width:400px;height:350px;"></div>
         </div>
         <div id="wpListContainer">
@@ -39,7 +41,6 @@
                 <p id="wpListFilterDescription">아래 리스트에서 파란 상호명을 누르면 상세설명이 나옵니다!</p>
 
             </div>
-            <!-- workplace 일자리리스트-->
             <div class="wpItemContainer">
                 <div class="wpList">
                     <p class="wpName"></p>
@@ -47,14 +48,8 @@
                     <p class="wpAddress"></p>
                     <br>
                 </div>
-
-                <!-- <button class="wpCall"></button>
-                <button class="wpFindRoad"></button> -->
             </div>
-
-
         </div>
-
     </div>
     <div id="footer">
         <p>회사소개 |</p>
@@ -65,10 +60,10 @@
         <br>
         <p>©2024. 내일 all rights reserved</p>
     </div>
-    <!-- </div> -->
+
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=896bcba1c0b0dbe395b398da0dead7a6&libraries=services"></script>
-    <script src="./tastymapcopy.js"></script>
+    <script src="./일자리이음.js"></script>
 </body>
 
 </html>
