@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/application-check.css">
+</head>
+<body>
+	<div class="TopBar">
+      <img id="menu" src="./img/menu.png" alt="메뉴 아이콘" />
+      <img id="logo" src="./img/logo_rmv.png" alt="내일 로고" />
+      <h1>마이페이지</h1>
+      <div id="LoginInfo"><span id="UserName"></span>@@님V</div>
+  </div>
+
+    <div class="category">
+      <p>신청한 근로 프로그램 조회</p>
+    </div>
+		<div id="appliedJobContainer">
+			<div class="form-group period">
+          <label for="start-date">기간</label>
+          <input type="radio" class="input-Job" id="1month" name="period" value="1month"> 1개월 미만
+          <input type="radio" class="input-Job" id="3months" name="period" value="3months"> 3개월
+          <input type="radio" class="input-Job" id="5months" name="period" value="5months"> 5개월
+          <input type="radio" class="input-Job" id="all" name="period" value="all"> 전체
+      </div>
+			<div class="form-group period">
+				<label for="">직접 기간 지정</label>
+          <input type="date" class="input-Job" id="start-date">
+          <input type="date" class="input-Job" id="end-date">
+      </div>
+      <div class="form-group">
+          <label for="program-name">프로그램명</label>
+          <input type="text" class="input-Job" id="program-name">
+      </div>
+      <div>
+        <table border="1px solid black">
+          <thead>
+            <th>프로그램명</th>
+            <th>위치</th>
+            <th>시작날짜</th>
+            <th>종료날짜</th>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="buttons">
+          <button type="button" onclick="checkConditions('appliedJobContainer')">검색</button>
+          <button type="button" onclick="resetForm('Job')">초기화</button>
+      </div>
+			<div class="alert" id="alert-job"></div>
+    </div>
+		
+
+		<div class="category">
+       <p>신청한 교육 프로그램 조회</p>
+    </div>
+		<div id="appliedProContainer">
+			<div class="form-group period">
+            <label>기간</label>
+            <input type="radio" class="input-Pro" id="1month-2" name="period-2" value="1month"> 1개월 미만
+            <input type="radio" class="input-Pro" id="3months-2" name="period-2" value="3months"> 3개월
+            <input type="radio" class="input-Pro" id="5months-2" name="period-2" value="5months"> 5개월
+            <input type="radio" class="input-Pro" id="all-2" name="period-2" value="all"> 전체
+        </div>
+        <div class="form-group period">
+            <label for="start-date-2">직접 기간 지정</label>
+            <input type="date" class="input-Pro" id="start-date-2">
+            <input type="date" class="input-Pro" id="end-date-2">
+        </div>
+        <div class="form-group">
+            <label for="program-name-2">프로그램명</label>
+            <input type="text" class="input-Pro" id="program-name-2">
+        </div>
+        
+        <div class="buttons">
+            <button type="button" onclick="checkConditions('appliedProContainer')">검색</button>
+            <button type="button" onclick="resetForm('Program')">초기화</button>
+        </div>
+		<div class="alert" id="alert-pro"></div>
+    </div>
+		
+
+		<script src="/application-check.js"></script>
+</body>
+</html>
+

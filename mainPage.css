@@ -1,135 +1,252 @@
 * {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-size: 17px;
+}
+body a:hover{
+  color: red;
+}
+/* body, html {
+    height: 100%;
     margin: 0;
-    padding: 0;
-  }
-  body{
-    margin: auto;
-  }
-  /*⭐헤더*/
-  h2 {
-    margin-top: 70px;
-    margin-left: 200px;
-    font-size: 40px;
-    display: inline;
-    line-height: 80px;
-  }
-  #search {
-    width: 400px;
-    height: 40px;
-    margin: 0px 0px 10px 10px;
-  }
-  #searchBtn {
-    width: 40px;
-    height: 40px;
-    margin: 0px 10px 0 0;
-  }
-  p {
-    display: inline;
-  }
-  #calendar {
-    width: 40px;
-    height: 40px;
-  }
+  } */
+/*⭐헤더*/
+#header {
+  display: flex;
+  width: 65%;
+  position: relative;
+  /* text-align: center; */
+  margin: auto;
+}
 
-  /*⭐카테고리*/
-  #category {
-    color: #fff;
-    background-color: #a5d7ff;
-    padding: 10px;
-    padding-left: 150px;
-  }
+#logo {
+  /* position: absolute;
+  top: 0;
+  left: 20%; */
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px 0 0px;
+}
 
-  .menu {
-    position: relative;
-    display: inline-block;
-    margin: 0 10px 0 50px;
-  }
-   a {
-    color: black;
-    text-decoration: none; 
-  } 
-
-  .submenu {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    opacity: 80%;
-    min-width: 150px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
-  }
-
-  .submenu a {
-    display: block;
-    color: #333;
-    padding: 6px 0;
-    text-decoration: none;
-  }
-
-  .menu:hover .submenu {
-    display: block;
-  }
-
-  /*⭐바디*/
-  #body {
-    margin: 20px 0 10px 200px;
-  }
-
-  #ad {
-    width: 600px;
-    height: 250px;
-    float: left; /* 왼쪽으로 부유(floating) */
-    margin-right: 20px; /* 오른쪽 여백 추가 */
-  }
-
-  #loginDiv {
-    width: 250px;
-    height: 250px;
-    border: 1px solid black;
-    float: left; /* 왼쪽으로 부유(floating) */
-    margin-left: 50px;
-    line-height: 60px;
-    text-align: center;
-  }
-  #psnLogin {
-    width: 200px;
-    height: 40px;
-    margin: 20px 0 10px 0;
-    background-color: rgb(255, 142, 142);
-    border: 0px;
-  }
-  #cpnLogin {
-    width: 200px;
-    height: 40px;
-    margin: 10px 0 10px 0;
-    background-color: #a5d7ff;
-    border: 0px;
-  }
-  #mngLogin {
-    width: 200px;
-    height: 40px;
-    margin: 10px 0 10px 0;
-    color: white;
-    background-color: #0168bd;
-    border: 0px;
-  }
-
-  /* ⭐바디2 */
-  #body2{
-    width: 600px; height: 200px;
-    border: 1px solid black;
-    margin: 20px 0 10px 200px;
-  }
-
-  /* 푸터 */
-  #footer{
-    background-color: #fff6a8;
-    height: 75px;
-    margin-top: 60px;
-    text-align: center;
-    line-height: 40px;
-  }
-
+#headerFunc {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; 
+  width: 100%; 
+  line-height: 100px;
   
-  
+}
+
+#search {
+  display: inline-block;
+  height: 40px;
+  margin: auto 20px;
+  padding: 5px;
+  /* border: 2px solid #0168bd;
+  border-radius: 50px; */
+  line-height: 40px; /* line-height를 제거하거나 기본값으로 설정 */
+  font-size: 17px; /* 텍스트 크기를 적절히 조정 */
+}
+
+
+#searchBtn:hover{
+  background-color: lightgray;
+}
+#a_signUp{
+  margin: 0 10px;
+}
+#a_login{
+  margin: 0 20px;
+}
+
+#header a {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/*⭐카테고리*/
+#category {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #0168bd;
+  padding: 10px;
+  padding-left: 200px;
+}
+
+.menu {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px 0 50px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu .submenu a:hover {
+  color: red;
+}
+
+.menu a {
+  color: white;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 100%;
+  min-width: 150px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.submenu a {
+  display: block;
+  color: #333;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+/**********⭐바디*************/
+#body {
+  margin: 20px 0 10px 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#banner {
+  width: 600px;
+  height: 250px;
+  margin-right: 20px;
+}
+
+#login {
+  width: 250px;
+  height: 250px;
+  border: 2px solid black;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-left: 50px;
+  line-height: 60px;
+}
+
+#psnLogin {
+  width: 200px;
+  height: 40px;
+  margin: 50px 0 10px 0;
+  color: black;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #a5d7ff;
+  border: 0px;
+}
+
+#cpnLogin {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  color: black;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #328ad2;
+  border: 0px;
+}
+
+#mngLogin {
+  width: 200px;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #0168bd;
+  border: 0px;
+}
+
+#psnLogin:hover,
+#cpnLogin:hover,
+#mngLogin:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+#notice {
+  width: 600px;
+  border: 2px solid black;
+}
+
+h3 {
+  display: inline;
+}
+
+#notice_showall {
+  float: right;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.notice_p {
+  display: block;
+  color: #191919;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  list-style-position: inside;
+}
+
+#chatBotContainer {
+  width: 200px;
+  height: 150px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chatBotContainer img {
+  width: 100%;
+  height: 70%;
+}
+
+/**************푸터***********/
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #0168bd;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer_a {
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  /* padding-right: 20px; */
+  line-height: 50px;
+}
