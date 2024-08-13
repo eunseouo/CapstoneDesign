@@ -107,3 +107,45 @@ input[type="text"] {
 label{
 	font-weight: bold;
 }
+
+/* #table{
+  border: 1px solid black;
+}
+
+.pagination button {
+      margin: 0 2px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      font-weight: bold;
+    }
+    스타일 파일 또는 <style> 태그에 추가 */
+.table-container {
+  max-height: 400px; /* 최대 높이 설정 */
+  overflow-y: auto;  /* 세로 스크롤 추가 */
+  display: none;     /* 기본적으로 숨김 */
+}
+
+table {
+  /* width: 100%;        테이블 너비 설정 */
+  border-collapse: collapse; /* 테두리 병합 */
+  max-height: 400px;
+}
+/* tbody{
+  overflow-y: auto;
+  display: block;
+} */
+ 
+        
+table th, table td {
+  padding: 8px; /* 셀 안쪽 여백 */
+  border: 1px solid #ddd; /* 셀 테두리 */
+  text-align: left; /* 셀 내용 정렬 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  overflow: hidden; /* 넘치는 내용 숨기기 */
+}
+
+table th {
+  background-color: #f4f4f4; /* 헤더 배경 색상 */
+}
