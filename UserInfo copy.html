@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 회원정보</title>
+</head>
+<style>
+    body {
+        background-color: whitesmoke;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .TopBar {
+        height: 100px; 
+        background-color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 2%;
+    }
+    #menu {
+        width: 50px;
+        height: 50%;
+        border: 1px solid grey;
+        border-radius: 10%;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #menu:hover {
+        background-color: gainsboro;
+    }
+    #logo {
+        height: 90%;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .main {
+        flex: 1;
+        margin-top: 5%;
+        margin-left: 20%;
+    }
+    #LoginInfo {
+        font-size: x-large;
+        font-weight: bold;
+        color: gray;
+        margin-left: auto;
+        margin-right: 10%;
+    }
+    .container {
+        width: 80%;
+        border: 2.5px solid black;
+        box-sizing: border-box;
+        background-color: white;
+        padding: 5%;
+        margin-bottom: 100px;
+    }
+    .Info {
+        position: relative;
+        font-weight: bold;
+        font-size: large;
+        margin-bottom: 15px;
+    }
+    #Info_sign {
+        margin-top: 1%;
+        margin-bottom: 2%;
+        font-weight: normal;
+        font-style: italic;
+        color: gray;
+    }
+    .userInfo, .userPoint, .userDeleted {
+        border: 2px solid black;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
+        font-weight: normal;
+        padding: 3%;
+        margin-top: 2%;
+    }
+    button {
+        padding: 1% 3%;
+        background-color: rgb(199, 230, 255);
+        color: black;
+        border: 1.5px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px; 
+        right: 10px; 
+    }
+    button:hover {
+        background-color: whitesmoke;
+    }
+    .checkboxContainer {
+        display: flex;
+        align-items: center;
+    }
+</style>
+<body>
+
+<div class="TopBar">
+    <img id="menu" src="./img/menu.png" alt="메뉴 아이콘">
+    <img id="logo" src="./img/logo_rmv.png" alt="내일 로고">
+    <h1>마이페이지</h1>
+    <div id="LoginInfo"><span id="UserName"></span>님</div>
+</div>
+
+<div class="main">
+    <h1><span id="UserName"></span>의 회원정보</h1>
+
+    <div class="container">
+        
+        <div class="Info">회원정보
+            <div id="Info_sign">정보 보호를 위해 연락처 일부만 확인 가능하며, 수정화면에서 정확한 정보 확인이 가능합니다.</div>
+            <button id="Update">수정하기</button>
+            <div class="userInfo">
+                <div>이름: <span id="UserName"></span></div>
+                <div>전화번호: <span id="UserPhone"></span></div>
+                <div>주소(구): <span id="UserAddress"></span></div>
+                <div>경력: <span id="Career"></span></div>
+                <div>건강 상태: <span id="HealthState"></span></div>
+                <div>희망 프로그램: <span id="WishList"></span></div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="Info">포인트
+            <div class="userPoint">
+                현재 <span id="UserName"></span> 님의 포인트는 <span id="Point"></span>점 입니다.
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="Info">탈퇴하기
+            <div class="userDeleted">
+                <b>※ 회원탈퇴를 하기 전에 안내 사항을 꼭 확인해주세요. </b>
+                <br><br>
+                <b>[내일 이용정보 삭제]</b>
+                <br>회원정보 및 개인 이용기록은 모두 삭제되며, 동일한 정보로 재가입하더라도 삭제된 데이터는 복구되지 않습니다.
+                <br><br>
+                또한, 탈퇴 후에는 개인의 데이터를 복구할 수 없으며, 탈퇴 후 재가입이 일정 기간 동안 제한될 수 있습니다.
+                <br><br>
+                <div class="checkboxContainer">
+                    <input type="checkbox" id="DeletedCheck" name="DeletedCheck">
+                    <label for="DeletedCheck">위 안내사항을 모두 확인했습니다.</label>
+                </div>
+                <button id="DeletedButton">탈퇴하기</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById("DeletedButton").addEventListener("click", function() {
+        if (document.getElementById("DeletedCheck").checked) {
+            alert("회원탈퇴가 완료되었습니다. 그동안 내일을 이용해 주셔서 감사합니다.");
+        } else {
+            alert("안내사항을 확인해주세요.");
+        }
+    });
+
+    document.getElementById("menu").addEventListener("click", function() {
+        window.location.href = '메인페이지링크'; // **나중에 메인페이지 링크 추가 예정**
+    });
+</script>
+</body>
+</html>

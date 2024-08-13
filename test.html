@@ -1,0 +1,100 @@
+.form-section {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .form-section h2 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group-inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group-inline input[type="text"] {
+            flex-grow: 1;
+        }
+
+        .form-group-inline button {
+            padding: 8px 12px;
+            font-size: 14px;
+            background-color: #ddd;
+            border: 1px solid #aaa;
+            cursor: pointer;
+        }
+
+        .form-group-inline button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-section">
+    <h2>병력사항 <span style="color: red;">*</span></h2>
+    <div class="form-group">
+        <label for="military-status">병력 여부</label>
+        <select id="military-status">
+            <option value="">선택</option>
+            <option value="yes">있음</option>
+            <option value="no">없음</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-section">
+    <h2>보호자 정보</h2>
+    <div class="form-group">
+        <label for="guardian-name">보호자 성명</label>
+        <input type="text" id="guardian-name">
+    </div>
+    <div class="form-group-inline">
+        <div class="form-group">
+            <label for="guardian-phone">보호자 전화번호</label>
+            <input type="text" id="guardian-phone">
+        </div>
+        <button>인증확인</button>
+    </div>
+    <div class="form-group">
+        <label for="guardian-relationship">관계</label>
+        <input type="text" id="guardian-relationship">
+    </div>
+</div>
+
+<div class="form-section">
+    <h2>경력사항</h2>
+    <div class="form-group">
+        <label for="work-period">근무기간</label>
+        <input type="text" id="work-period">
+    </div>
+    <div class="form-group">
+        <label for="work-duties">담당업무</label>
+        <input type="text" id="work-duties">
+    </div>
+</div>

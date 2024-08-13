@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/resume.css" />
+  </head>
+  <body>
+    <div class="TopBar">
+        <img id="menu" src="./img/menu.png" alt="메뉴 아이콘" />
+        <img id="logo" src="./img/logo_rmv.png" alt="내일 로고" />
+        <h1>이력서 작성</h1>
+        <div id="LoginInfo"><span id="UserName"></span>@@님V</div>
+    </div>
+
+    <div class="category">
+        <p>기본정보 *</p>
+    </div>
+    <div id="resume-container">
+        <div class="profile">
+            <img src="/img/profile.jpeg" alt="Profile Image" />
+            <div class="profile-info">
+                <label for="">이름*</label>
+                <input type="text" id="resume-name">
+                <label for="">성별*</label>
+                <input type="radio" name="gender" value="male"> 남성
+                <input type="radio" name="gender" value="female"> 여성 <br>
+                <label for="">연령*</label>
+                <input type="text" id="resume-age"><br>
+                <label for="">주소*</label>
+                <input type="text" id="resume-address"><br>
+                <label for="">휴대폰*</label>
+                <input type="text" id="resume-phoneNum">
+            </div>
+        </div>
+    </div>
+
+    <div class="category">
+        <p>자기소개</p>
+    </div>
+    <div id="resume-container">
+        <div class="section">
+            <div class="textarea-container">
+                <textarea id="resume-intro" placeholder="나에 대해 자유롭게 설명해보세요."></textarea>
+            </div>
+            <a href="https://search.naver.com/search.naver?sm=whl_nht&query=%EB%84%A4%EC%9D%B4%EB%B2%84+%EB%A7%9E%EC%B6%A4%EB%B2%95+%EA%B2%80%EC%82%AC%EA%B8%B0">
+                <button class="match-button">맞춤법 검사하기</button>
+            </a>
+        </div>
+    </div>
+		<div class="category">
+      <p>과거병력사항, 경력사항, 자격증 등의 항목은 회원정보에서 수정 가능합니다.</p>
+    </div>
+
+    <div id="output"></div>
+
+    <!-- fixed -->
+    <div class="fixed-section">
+        <button id="saveForm" onclick="saveForm()">이력서 저장</button>
+        <button id="modifyForm" onclick="modifyForm()">이력서 수정</button>
+        <button style="background-color: #ccc; color: #666" id="deleteForm">이력서 삭제</button>
+
+        <div class="required-fields">
+            <h3>필수 입력 사항 *</h3>
+            <ul>
+                <li>개인기본정보</li>
+            </ul>
+        </div>
+
+        <div class="optional-fields">
+            <h3>선택 입력 사항</h3>
+            <ul>
+                <li>자기소개</li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="category">
+      <p>과거병력사항 *</p>
+    </div>
+    <div id="resume-container">
+      <div class="form-group">
+        <label for="history">과거병력</label>
+        <select id="history">
+          <option value="">선택</option>
+          <option value="">고혈압</option>
+          <option value="">저혈압</option>
+          <option value="">당뇨</option>
+          <option value="">고지혈증</option>
+          <option value="">기타</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="category">
+      <p>경력사항 </p>
+    </div>
+      <div id="resume-container">
+				<div class="form-group">
+        <label for="work-period">근무기간</label>
+        <input type="text" id="work-period" />
+      </div>
+      <div class="form-group">
+        <label for="work-duties">담당업무</label>
+        <input type="text" id="work-duties" />
+      </div>
+			</div>
+
+
+    <div class="category">
+      <p>자격증</p>
+    </div>
+      <div id="resume-container">
+				<div class="form-group">
+        <label for="qualifications">자격증 명</label>
+        <input type="text" id="qualifications" />
+      </div>
+      <div class="form-group">
+        <label for="qualifications">취득년도</label>
+        <input type="text" id="qualifications" />
+      </div>
+			</div> -->
+
+
+		<!-- fixed -->
+		<!-- <div class="fixed-section">
+      <button id="saveForm">이력서 저장</button>
+      <button id="modifyForm">이력서 수정</button>
+      <button style="background-color: #ccc; color: #666" id="deleteForm">이력서 삭제</button>
+
+      <div class="required-fields">
+        <h3>필수 입력 사항 *</h3>
+        <ul>
+          <li>개인기본정보</li>
+        </ul>
+      </div>
+
+      <div class="optional-fields">
+        <h3>선택 입력 사항</h3>
+        <ul>
+          <li>자기소개</li>
+        </ul>
+      </div>
+    </div> -->
+    <script src="/resume.js"></script>
+  </body>
+</html>

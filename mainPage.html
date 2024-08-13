@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <link rel="stylesheet" href="./mainPage.css" />
+  </head>
+
+  <body>
+    <!-- ⭐헤더 -->
+    <div id="header">
+      <img id="logo" src="./img/logo.png" width="100px" height="100px" />
+      <div id="headerFunc">
+        <a id="search" href="#검색페이지랑 연결">검색하기</a>
+        <a id="a_signUp" href="회원가입페이지랑 연결">회원가입</a>
+        <a id="a_login" href="마이페이지랑 연결">마이페이지</a>
+      </div>
+      <br />
+    </div>
+    <hr />
+
+    <!-- ⭐카테고리 -->
+    <div id="category">
+      <div class="menu">
+        <a href="#">일자리이음</a>
+        <div class="submenu">
+          <a href="#">일자리 신청하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">지식이음</a>
+        <div class="submenu">
+          <a href="#">센터찾기</a>
+          <a href="#">프로그램 신청하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">마음이음</a>
+        <div class="submenu">
+          <a href="#">상담 신청하기</a>
+          <a href="#">말동무 신청하기</a>
+        </div>
+      </div>
+      <div class="menu">
+        <a href="#">고객센터</a>
+        <div class="submenu">
+          <a href="#">자주묻는 질문</a>
+          <a href="#">문의/제안/신고</a>
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">위치기반서비스이용약관</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- ⭐바디 -->
+    <div id="body">
+      <div id="topRow" class="flex-row">
+        <div id="banner">
+          <img src="./img/bannerEx.png" width="600px" height="250px" />
+        </div>
+        <div id="login">
+          <button id="psnLogin">개인로그인</button><br />
+          <button id="cpnLogin">기업로그인</button><br />
+          <a href="">아이디 비밀번호 찾기 |</a>
+          <a href="">로그아웃</a>
+        </div>
+      </div>
+      <div id="bottomRow" class="flex-row">
+        <div id="notice">
+          <h3>공지사항</h3>
+          <a id="notice_showall" href="">전체보기>>></a>
+          <br />
+          <ul>
+            <li>
+              노인 일자리를 지원하는 기업과의 만남을 위한 채용 박람회
+              개최...2024.04.12
+            </li>
+            <li>
+              노인을 위한 일자리 관련 특강 및 교육 프로그램 개최...2024.04.08
+            </li>
+            <li>
+              노인을 위한 디지털 스킬 트레이닝 프로그램의 채용 마감이
+              임박...2024.04.01
+            </li>
+          </ul>
+        </div>
+        <div id="chatBotContainer">
+          <img src="./img/챗봇.png" alt="챗봇 이미지" onclick="location.href='채팅페이지로 연결'" />
+        </div>
+      </div>
+    </div>
+    <!-- ⭐푸터 -->
+    <div id="footer">
+      <a class="footer_a" href="">이용약관 |</a>
+      <a class="footer_a" href="">개인정보처리방침 |</a>
+      <a class="footer_a" href="">제휴 및 광고문의 |</a>
+      <a class="footer_a" href="">자주 묻는 질문(개인용) |</a>
+      <a class="footer_a" href="">자주 묻는 질문(기업용) |</a>
+      <a class="footer_a" href="">1:1 문의</a>
+    </div>
+  </body>
+  <!-- <script>
+    //로그인 성공시 
+    let loginSuccess = true; 
+    let userName = "뫄뫄"; 
+
+    if (loginSuccess) {
+      let headerFunc = document.getElementById('headerFunc');
+
+      // 기존 회원가입 및 마이페이지 링크를 제거
+      document.getElementById('a_signUp').remove();
+      document.getElementById('a_login').remove();
+
+      // 로그아웃 링크 추가
+      let logoutLink = document.createElement('a');
+      logoutLink.href = "#";
+      logoutLink.textContent = "로그아웃";
+      headerFunc.appendChild(logoutLink);
+
+      // 사용자 이름 링크 추가
+      let userLink = document.createElement('a');
+      userLink.href = "#";
+      userLink.textContent = `${userName}님`;
+      headerFunc.appendChild(userLink);
+    }
+  </script> -->
+</html>

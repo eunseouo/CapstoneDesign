@@ -1,0 +1,109 @@
+body {
+  background-color: whitesmoke;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* viewport height */
+}
+
+.TopBar {
+  height: 100px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+}
+
+#menu {
+  width: 50px;
+  height: 50%;
+  border: 1px solid grey;
+  border-radius: 10%;
+  padding: 10px;
+}
+
+#logo {
+  height: 90%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.category p {
+  padding: 10px 0 10px 10rem;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#LoginInfo {
+  font-size: x-large;
+  font-weight: bold;
+  color: gray;
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+#appliedJobContainer {
+  width: 100%;
+  min-height: 30vh;
+  padding: 10px 0 10px 10rem;
+  background-color: white;
+  font-size: 20px;
+  /* font-weight: bolder; */
+}
+#appliedProContainer {
+  width: 100%;
+  min-height: 30vh;
+  padding: 10px 0 10px 10rem;
+  background-color: white;
+  font-size: 20px;
+  /* font-weight: bolder; */
+}
+.container {
+  margin-bottom: 40px;
+}
+.container h2 {
+  margin-bottom: 10px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.period{
+	display: inline;
+}
+label {
+  display: inline-block;
+  min-width: 60px;
+	margin: 10px;
+}
+input[type="date"] {
+  margin-right: 10px;
+}
+input[type="text"] {
+  width: 200px;
+  margin-right: 10px;
+}
+.buttons {
+  margin-top: 10px;
+}
+.buttons button {
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #b6a6d9;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	font-size: 20px;
+} 
+.buttons button:last-child {
+  background-color: #d9d9d9;
+}
+
+label{
+	font-weight: bold;
+}
